@@ -12,6 +12,7 @@ public:
     // @abi action
     void printcalcs ();
 
-   
+};
+
 EOSIO_ABI(calendar, (printcalcs))
  
