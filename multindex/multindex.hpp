@@ -83,7 +83,7 @@ private:
 
 };
 
-EOSIO_ABI(multindex, (printtime)(getdefault)(getnuma)(getnumb)(getnumc)
+EOSIO_ABI(multindex, (getdefault)(getnuma)(getnumb)(getnumc)
                     (getnumd)(additem)(incrall)(clearall)(blessthan)\
                     (cgreatthan)(dbetween))
  
