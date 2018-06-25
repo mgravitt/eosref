@@ -11,6 +11,6 @@ using namespace std;
 
 // start of various time functions
 void calendar::printcalcs () {
-    print ("Epoch Time:                 ", now(), "; " );
+    print ("Epoch Time:    ", now(), "; " );
     print ("Hour of Week (0=Thursday @ 12:00 AM):   ", now() % 604800 / 60 / 60  );
 }
