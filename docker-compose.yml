@@ -18,6 +18,7 @@ services:
     volumes:
       - nodeos-data-volume:/opt/eosio/bin/data-dir
       - ./multindex:/opt/eosio/bin/data-dir/multindex
+      - ./js:/opt/eosio/bin/data-dir/js
 
   keosd:
     image: eosio/eos-dev:v1.0.4

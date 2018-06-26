@@ -1,0 +1,14 @@
+{
+  "name": "eosref",
+  "version": "1.0.0",
+  "description": "js examples of using eosjs and eosref",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raphael Gaudreault",
+  "license": "ISC",
+  "dependencies": {
+    "eosjs": "^15.0.3"
+  }
+}
