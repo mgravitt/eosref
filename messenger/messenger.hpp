@@ -15,6 +15,9 @@ public:
                       const uint64_t     uuid,
                       const uint16_t     input);
 
+    // @abi action
+    void removeanswer (const uint64_t uuid);
+
 private: 
     // @abi table messages i64
     struct message {
@@ -28,4 +31,4 @@ private:
 
 };
 
-EOSIO_ABI(messenger, (writeanswer))
+EOSIO_ABI(messenger, (writeanswer)(removeanswer))
