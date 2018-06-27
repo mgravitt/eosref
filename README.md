@@ -8,7 +8,7 @@ docker-compose up -d
 
 Then you need to build and deploy abi
 ```
-docker exec -it eosref_nodeosd_1 ./eosref-entrypoint.sh
+docker exec -it eosref_nodeosd_1 ./eosref-entrypoint-multindex.sh
 ```
 
 ### cleos
