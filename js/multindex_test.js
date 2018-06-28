@@ -25,8 +25,9 @@ test_two = () => {
         code:'multindex',
         scope:'multindex',
         table:'items',
-        table_key: 'numC',
-        lower_bound: 50,
+        table_key: 'numa',
+        lower_bound: '00000000000000000050',
+                    // '18446744073709551616'
         json: true,
     }).then(function(response) {
       console.log(response);

@@ -32,4 +32,5 @@ cleos push action multindex additem '["multindex",70, 71, 72, 73]' -p multindex
 cleos push action multindex additem '["multindex",80, 81, 82, 83]' -p multindex
 cleos push action multindex additem '["multindex",90, 91, 92, 93]' -p multindex
 
+
 node /opt/eosio/bin/data-dir/js/multindex_test $PRIVKEY
