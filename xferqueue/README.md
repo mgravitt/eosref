@@ -8,5 +8,6 @@ It is hard-coded to kick off an action every 8 seconds.
 
 Future Improvements: 
 - Make the 8-second delay configurable
+- Can the delay between transaction use the available staked CPU as a throttle and increase / decrease to optimize?
 - Integrate with the distribution tree
 - ?
