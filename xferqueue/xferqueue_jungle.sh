@@ -32,6 +32,6 @@ cleos push action xfertoken1 issue '["maxfrom1", "1000.0000 MAX"]' -p maxfrom1
 cleos push action xfertoken1 issue '["maxfrom2", "1000.0000 MAX"]' -p maxfrom1
 cleos push action xfertoken1 issue '["maxfrom3", "1000.0000 MAX"]' -p maxfrom1
 
-cleos push action xferqueue addtoq '["xfertoken1", "maxfrom1", "maxto1", "26.0000 MAX", "memo"]' -p xferqueue
-cleos push action xferqueue addtoq '["xfertoken1", "maxfrom2", "maxto1", "26.0000 MAX", "memo"]' -p xferqueue
-cleos push action xferqueue addtoq '["xfertoken1", "maxfrom3", "maxto1", "26.0000 MAX", "memo"]' -p xferqueue
+cleos push action xferqueue addtoq '["xfertoken1", "maxfrom1", "maxto1", "2.0000 MAX", "memo"]' -p xferqueue
+cleos push action xferqueue addtoq '["xfertoken1", "maxfrom2", "maxto1", "2.0000 MAX", "memo"]' -p xferqueue
+cleos push action xferqueue addtoq '["xfertoken1", "maxfrom3", "maxto1", "2.0000 MAX", "memo"]' -p xferqueue
