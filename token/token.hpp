@@ -113,7 +113,6 @@ class token : public contract
       };
 };
 
-
 asset token::get_supply(symbol_name sym) const
 {
       stats statstable(_self, sym);
@@ -130,4 +129,4 @@ asset token::get_balance(account_name owner, symbol_name sym) const
 
 
 
-EOSIO_ABI (token, (create)(issue)(transfer)(addacct)(remacct))
+EOSIO_ABI (token, (create)(issue)(transfer)(addacct)(remacct)(addkycapp)(remkycapp)(approvekyc)(remkyc))

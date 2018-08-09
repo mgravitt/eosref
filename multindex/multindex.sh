@@ -1,5 +1,8 @@
-eosiocpp -g multindex/multindex.abi multindex/multindex.hpp &&
-eosiocpp -o multindex/multindex.wast multindex/multindex.cpp &&
+
+cleos create account eosio multindex EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn
+
+eosiocpp -g /eosdev/eosref/multindex/multindex.abi /eosdev/eosref/multindex/multindex.hpp &&
+eosiocpp -o /eosdev/eosref/multindex/multindex.wast /eosdev/eosref/multindex/multindex.cpp &&
 cleos set contract multindex multindex
 
 cleos push action multindex additem '["multindex",1,2,3,4]' -p multindex

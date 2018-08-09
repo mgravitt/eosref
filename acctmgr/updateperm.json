@@ -1,0 +1,95 @@
+{
+    "account": "acctmgr",
+    "permission": "active",
+    "parent": "owner",
+    "auth": {
+        "keys": [
+            {
+                "key": "EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn",
+                "weight": 1
+            }
+        ],
+        "threshold": 1,
+        "accounts": [
+            {
+                "permission": {
+                    "actor": "acctmgr",
+                    "permission": "eosio.code"
+                },
+                "weight": 1
+            }
+        ],
+        "waits": []
+    }
+}
+
+
+
+
+
+
+cleos push action eosio updateauth '{
+    "account": "acctmgr",
+    "permission": "owner",
+    "parent": "",
+    "auth": {
+        "keys": [
+            {
+                "key": "EOS8EP6Yx38nqSfpUtAJzjRac1dUXK8BwxcPJ3gPrKUb8s46r37uN",
+                "weight": 1
+            }
+        ],
+        "threshold": 1,
+        "accounts": [
+            {
+                "permission": {
+                    "actor": "acctmgr",
+                    "permission": "owner"
+                },
+                "weight": 1
+            }
+        ],
+        "waits": []
+    }
+}' -p acctmgr
+
+
+
+{
+    "code": "eosio",
+    "action": "updateauth",
+    "args": {
+      "account": "acctmgr",
+      "permission": "owner",
+      "parent": "",
+      "auth": {
+        "keys": [{
+            "key": "EOS8EP6Yx38nqSfpUtAJzjRac1dUXK8BwxcPJ3gPrKUb8s46r37uN",
+            "weight": 1
+          }
+        ],
+        "threshold": 1,
+        "accounts": [{
+            "permission": {
+              "actor": "acctmgr",
+              "permission": "owner"
+            },
+            "weight": 1
+          }
+        ],
+        "waits": []
+      }
+    }
+  }
+  
+
+cleos push action eosio updateauth '{"account":"tochange","permission":"owner","parent":"",
+"auth":{"keys":[{"key":"EOS6FJ51yg6DCGDHGdyrMMTfjnTrADsLGP4VyhjHmr3q4EFX8kDoe1", "weight":1}],
+"threshold":1,"accounts":[{"permission":{"actor":"acctmgr","permission":"owner"},
+    "weight":1}],"waits":[]}}' -p tochange@owner
+
+
+cleos push action eosio updateauth '{"account":"tochange","permission":"active","parent":"owner",
+    "auth":{"keys":[{"key":"EOS6FJ51yg6DCGDHGdyrMMTfjnTrADsLGP4VyhjHmr3q4EFX8kDoe1", "weight":1}],
+    "threshold":1,"accounts":[{"permission":{"actor":"acctmgr","permission":"owner"},
+        "weight":1}],"waits":[]}}' -p tochange@owner

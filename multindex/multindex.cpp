@@ -127,6 +127,28 @@ void multindex::clearall () {
     print ("All items erased.\n");
 }
 
+void multindex::modfirstb (const account_name payer,
+                            const uint64_t    numA,
+                            const uint64_t    numC,
+                            const uint64_t    numD) {
+
+    print ("Updating first item of B index.\n");
+    item_table item_t (_self, _self);
+    auto item_index = item_t.get_index< N(numb)>();
+    auto item_itr = item_index.begin();
+
+    auto mod_itr = item_t.find(item_itr->key);
+    
+    item_t.modify (mod_itr, payer, [&](auto& i) {
+        i.numA = numA;
+        i.numC = numC;
+        i.numD = numD;
+    });
+
+    print ("Item updated.\n");
+
+}
+
 // Using default sort order, index all columns in each record
 void multindex::incrall (const account_name payer) {
     require_auth (payer);

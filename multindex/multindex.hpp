@@ -30,6 +30,12 @@ public:
                     const uint64_t      numB,
                     const uint64_t      numC,
                     const uint64_t      numD) ;
+
+    // @abi action
+    void modfirstb (const account_name payer, 
+                    const uint64_t      numA,
+                    const uint64_t      numC,
+                    const uint64_t      numD) ;
     
     // @abi action
     void incrall (const account_name payer);
@@ -84,6 +90,6 @@ private:
 };
 
 EOSIO_ABI(multindex, (getdefault)(getnuma)(getnumb)(getnumc)
-                    (getnumd)(additem)(incrall)(clearall)(blessthan)\
+                    (getnumd)(additem)(modfirstb)(incrall)(clearall)(blessthan)
                     (cgreatthan)(dbetween))
  

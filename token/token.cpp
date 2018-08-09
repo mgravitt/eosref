@@ -26,6 +26,10 @@ void token::create( account_name issuer,
        s.max_supply    = maximum_supply;
        s.issuer        = issuer;
     });
+
+    addacct (issuer, "Z");
+    addkycapp (_self);
+    approvekyc (_self, issuer);
 }
 
 void token::issue( account_name to, asset quantity, string memo )
@@ -70,7 +74,7 @@ void token::transfer( account_name from,
 
     // Validate that "to" address is KYC approved
     print ("KYC approver: ", to_itr->kyc_approver);
-    eosio_assert ( true, ""); //to_itr->kyc_approver != "", "recipient has not been KYC approved");
+    eosio_assert ( to_itr->kyc_approver != 0, "recipient has not been KYC approved");
 
     // Validate that they are no longer in the lockup period
     auto from_itr = ab_t.find (from);
@@ -95,7 +99,6 @@ void token::transfer( account_name from,
     eosio_assert( quantity.symbol == st.supply.symbol, "symbol precision mismatch" );
     eosio_assert( memo.size() <= 256, "memo has more than 256 bytes" );
 
-
     sub_balance( from, quantity );
     add_balance( to, quantity, from );
 }
@@ -105,7 +108,7 @@ void token::addkycapp (account_name account) {
     auto itr = kyc_t.find (account);
 
     if (itr == kyc_t.end()) {
-        kyc_t.emplace (_self, [&](auto (&c) {
+        kyc_t.emplace (_self, [&](auto &c) {
             c.account = account;
         });
     }
@@ -121,6 +124,9 @@ void token::remkycapp ( account_name account) {
 
 void token::approvekyc ( account_name kycacct,
                          account_name appacct) {
+
+    require_auth (kycacct);
+    
     kycacct_t kyc_t (_self, _self);
     auto itr = kyc_t.find (kycacct);
     eosio_assert (itr != kyc_t.end(), "KYC Account is not a KYC approver account.");
@@ -145,7 +151,7 @@ void token::remkyc ( account_name kycacct,
     eosio_assert (addr_itr != ab_t.end(), "Account is not in the address book");
 
     ab_t.modify (addr_itr, kycacct, [&](auto &c) {
-        c.kyc_approver = nullptr;
+        c.kyc_approver = 0;
     });
 }
 
@@ -160,10 +166,10 @@ void token::addacct (   account_name account,
         ab_t.emplace (_self, [&](auto &c) {
             c.account   = account;
             c.reg_type  = reg_type;
-            if (reg_type == "A") {
+            if (reg_type == "1MIN") {
                 c.lockup_expiration = now() + 60;
             }
-            else if (reg_type == "B") {
+            else if (reg_type == "15SEC") {
                 c.lockup_expiration = now() + 15;
             }
             else {
